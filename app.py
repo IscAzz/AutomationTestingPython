@@ -1,3 +1,8 @@
+# The app.py file is a Flask web application that serves as an API for a simple calculator.
+# It exposes multiple endpoints (/add, /subtract, /multiply, /divide) that allow users to perform basic arithmetic
+# operations by sending HTTP GET requests with parameters (a and b).
+# Each endpoint returns the result of the calculation. The application is intended for testing and development purposes,
+# providing an easy way to interact with the calculator operations programmatically.
 from flask import Flask, request, jsonify  # Import necessary Flask components to create the web server and handle HTTP requests
 from SampleCalc import Calculator  # Import the Calculator class from SampleCalc.py to use its methods
 
