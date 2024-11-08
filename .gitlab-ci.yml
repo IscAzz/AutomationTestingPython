@@ -1,0 +1,21 @@
+# The code below was written to basically instruct GitLab to run the required tests.
+# Each time the code is modified and pushed into GitLab the code is tested which will allow for early error catching
+# without having to manually test the code.
+# Define the stages in the CI/CD pipeline
+stages:
+  - test # Here we define a single stage named 'test' which will be used to run our tests
+
+# Next we need to define the job that will run the unit and integration tests
+run_tests: # The job will be called run_tests and will run in the test stage
+  stage: test # Specifies that this job is part of the 'test' stage
+  image: python:3.9 #Using Python 3.9 Docker Image as the environment for running this job.
+  # Note: Python 3.9 Docker Image is pre-configured, ready to use environment that contains everything
+  # you need to run Python 3.9 code. They are used to create isolated environments known as containers.
+  before_script:
+      # This seccion runs command before the main script section
+      # It is used to install the necessary dependencies for running our tests.
+    - pip install -r requirments.txt # Install the required Python packages listed in requirments.txt
+  script:
+      #This is the main script. It defines the main steps that will be executed in the job
+      # In this case, we are running the unit tests and integration tests for our calculator project.
+    - python -m unittest discover # Discover and run all test files in the project directory
