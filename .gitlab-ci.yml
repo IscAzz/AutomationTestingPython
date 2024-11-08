@@ -12,7 +12,7 @@ run_tests: # The job will be called run_tests and will run in the test stage
   # Note: Python 3.9 Docker Image is pre-configured, ready to use environment that contains everything
   # you need to run Python 3.9 code. They are used to create isolated environments known as containers.
   before_script:
-      # This seccion runs command before the main script section
+      # This section runs command before the main script section
       # It is used to install the necessary dependencies for running our tests.
     - pip install -r requirements.txt # Install the required Python packages listed in requirments.txt
   script:
