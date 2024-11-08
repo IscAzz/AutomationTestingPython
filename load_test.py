@@ -1,3 +1,7 @@
+#The load_test.py file is used to test how well the calculator web server handles many users at the same time. It uses
+# Locust, a load testing tool, to simulate multiple users making requests to the calculator's endpoints
+# (add, subtract, multiply, divide). This helps determine how fast the server responds and if it can handle a lot of
+# users without problems. It’s a way to measure the server's performance under heavy load.
 from locust import HttpUser, task, between  # Import necessary classes from Locust to create load tests
 
 class CalculatorUser(HttpUser):  # Define a user class that simulates behavior for load testing
