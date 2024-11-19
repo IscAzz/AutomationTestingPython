@@ -7,4 +7,4 @@ locust
 
 # Unittest is built into Python, so it's generally not included in requirements.txt
 
-psutil #psutil is used to run the load test to display the metrics of the system during the load test
+psutil #psutil is used to run the load test to display the metrics of the system during the load test.
