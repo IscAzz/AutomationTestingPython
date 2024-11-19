@@ -1,31 +1,36 @@
-name: Integration Tests Workflow
+name: Integration Tests Workflow # Name of the workflow that will show up in GitHub Actions
 
 on:
   push:
     branches:
-      - main
+      - main  # Run tests automatically when new code is pushed to the "main" branch
   pull_request:
     branches:
-      - main
+      - main  # Run tests automatically for every pull request targeting the "main" branch
 
 jobs:
   integration-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # The environment in which the tests will run. In this case, we use the latest version of Ubuntu.
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      # Step 1: Checkout the repository code
+      - name: Checkout repository  # This step pulls the repository's code into the runner's environment
+        uses: actions/checkout@v3  # Using an official GitHub action to check out the code
 
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v4
+      # Step 2: Set up Python
+      - name: Set up Python 3.9  # This step sets up a Python environment for the workflow
+        uses: actions/setup-python@v4  # Official GitHub action for setting up Python
         with:
-          python-version: '3.9'
+          python-version: '3.9'  # The specific version of Python that we need for running the tests. You can adjust this if your project needs a different version.
 
-      - name: Install dependencies
+      # Step 3: Install dependencies
+      - name: Install dependencies  # This step installs all necessary Python packages for the project
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip  # First, we upgrade pip to the latest version to ensure compatibility
+          pip install -r requirements.txt  # Then, we install all packages listed in requirements.txt to ensure our tests have everything they need
 
-      - name: Run integration tests
+      # Step 4: Run integration tests
+      - name: Run integration tests  # This step runs the integration tests using Python's built-in unittest framework
         run: |
-          python -m unittest discover -s . -p "IntegrationTest*.py"
+          python -m unittest discover -s . -p "IntegrationTest*.py"  # Discover and run all test files that match the pattern "IntegrationTest*.py"
+
