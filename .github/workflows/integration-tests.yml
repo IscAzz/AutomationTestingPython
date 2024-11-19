@@ -38,4 +38,5 @@ jobs:
       - name: Run load tests
         run: |
           python load_test.py
+          python load_test_metrics.py
 
